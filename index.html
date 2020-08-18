@@ -1,8 +1,8 @@
 <html>
   <head>
     <script>
-    //   let HOST = location.origin.replace(/^http/, 'ws')
-      let ws = new WebSocket('localhost:9000');
+      let HOST = location.origin.replace(/^http/, 'ws')
+      let ws = new WebSocket(HOST);
       let el;
 
       ws.onmessage = (event) => {

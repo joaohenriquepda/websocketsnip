@@ -4,7 +4,6 @@ const express = require('express');
 const url = require('url');
 
 const WebSocket = require('ws').Server;
-const { Server } = require('ws');
 
 const PORT = process.env.PORT || 9000;
 const INDEX = '/index.html';
@@ -13,10 +12,8 @@ const server = express()
     .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-
 const wss = new WebSocket({ server: server });
 console.log("SNIP WEBSOCKET EDIT FILE SERVER UP!!!");
-
 
 // initialization
 var CHANNELS = [];
