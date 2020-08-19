@@ -186,6 +186,14 @@ wss.on('connection', (ws, req) => {
                 CHANNELS[data.collection][data.thing]["status"] = "archived";
                 wss.broadcastArchivedFile(CHANNELS[data.collection][data.thing], data);
                 break;
+            case 'reset-server':
+                console.log("Reset Server");
+                CHANNELS = [];
+                // CHANNELS[data.collection][data.thing]["status"] = "block";
+                // CHANNELS[data.collection][data.thing]["user_edit"] = data.user;
+                // CHANNELS[data.collection][data.thing]["id_edit"] = data.user.id;
+                // wss.broadcastUpdateFile(CHANNELS[data.collection][data.thing], data);
+                break;
             case 'save-edit':
                 CHANNELS[data.collection][data.thing]["status"] = "update";
                 CHANNELS[data.collection][data.thing]["id_edit"] = '';
